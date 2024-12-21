@@ -1,4 +1,9 @@
 .onLoad <- function(libname, pkgname) {
+  # Load the necessary packages
+  library(httr)
+  library(jsonlite)
+  library(remotes)
+
   # Define the current version of the package (or fetch it from DESCRIPTION)
   current_version <- packageDescription(pkgname)$Version
 
