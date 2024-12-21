@@ -1,6 +1,6 @@
-# RankPredictorbyDevanshGohil
+# Rank Predictor(IPM) by Devansh Gohil
 
-**RankPredictor** is an R package developed by Devansh Gohil for predicting academic ranks based on CGPA and term/year. The tool provides insights into rank estimation, percentile, CGPA conversion, and more, making it a comprehensive tool for academic performance analysis. This tool is built specifically for IPM students of IIM Indore based on the data available on IPM Intranet as of 21st December, 2024.
+**RankPredictorbyDevanshGohil** is an R package developed by Devansh Gohil for predicting academic ranks based on CGPA and term/year. The tool provides insights into rank estimation, percentile, CGPA conversion, and more, making it a comprehensive tool for academic performance analysis. This tool is built specifically for IPM students of IIM Indore based on the data available on IPM Intranet as of 21st December, 2024.
 
 ---
 
@@ -63,7 +63,6 @@ The function outputs the following details:
 
 - **Invalid CGPA**: Ensure the input CGPA is a numeric value between `0` and `4.333`.
 - **Invalid Term/Year**: Use valid inputs for terms or years, such as `"Term 1"`, `"Year 1"`, or `"Aggregate"`. Invalid inputs will trigger an error message.
-
 ---
 
 ## Contact
