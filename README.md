@@ -70,4 +70,3 @@ The function outputs the following details:
 
 This package was developed by **Devansh Gohil, IPM '24 Batch**.  
 For assistance, email: [i24devanshg@iimidr.ac.in](mailto:i24devanshg@iimidr.ac.in).
-```
