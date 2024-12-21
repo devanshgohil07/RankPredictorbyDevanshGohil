@@ -1,54 +1,34 @@
-library(httr)
-library(jsonlite)
-library(remotes)
-
-# Your GitHub repository details
-REPO_OWNER <- "DevanshGohil"  # Your GitHub username
-REPO_NAME <- "RankPredictorbyDevanshGohil"  # Your repository name
-
-# Function to fetch the latest release version from GitHub
-get_latest_release_version <- function() {
-  url <- paste0("https://api.github.com/repos/", REPO_OWNER, "/", REPO_NAME, "/releases/latest")
-  response <- GET(url)
-
-  if (status_code(response) == 200) {
-    release_data <- content(response, "parsed")
-    latest_version <- release_data$tag_name  # e.g., "v1.0.1"
-    return(latest_version)
-  } else {
-    cat("Error fetching release data from GitHub.\n")
-    return(NULL)
-  }
-}
-
-# Function to check for update and prompt user
 check_for_update <- function(current_version) {
-  latest_version <- get_latest_release_version()
+  # URL to fetch the latest release data from GitHub
+  url <- "https://api.github.com/repos/devanshgohil07/RankPredictorbyDevanshGohil/releases/latest"
 
-  if (!is.null(latest_version)) {
-    cat("Current version:", current_version, "\n")
-    cat("Latest version:", latest_version, "\n")
+  # Make the GET request to GitHub API
+  response <- httr::GET(url)
 
-    if (latest_version != current_version) {
-      cat("A new update is available!\n")
+  # Check if the request was successful
+  if (httr::status_code(response) == 200) {
+    # Parse the JSON response
+    release_data <- jsonlite::fromJSON(httr::content(response, "text"))
 
-      # Prompt the user for update
-      response <- readline(prompt = "Do you want to update this package? (yes/no): ")
+    # Get the latest version from the release data
+    latest_version <- release_data$tag_name
 
-      if (tolower(response) == "yes") {
-        cat("Updating package...\n")
+    # Compare the current version with the latest version
+    if (current_version != latest_version) {
+      message("A new version is available: ", latest_version)
+      user_response <- readline(prompt = "Do you want to update the package? (yes/no): ")
 
-        # Install the latest version from GitHub using remotes
-        remotes::install_github(paste0(REPO_OWNER, "/", REPO_NAME))
-
-        cat("Package updated to the latest version!\n")
+      if (tolower(user_response) == "yes") {
+        # Use remotes package to install the latest version
+        remotes::install_github("devanshgohil07/RankPredictorbyDevanshGohil")
+        message("Package updated successfully!")
       } else {
-        cat("Update skipped.\n")
+        message("Package not updated.")
       }
     } else {
-      cat("You have the latest version.\n")
+      message("You are using the latest version.")
     }
   } else {
-    cat("Could not check for updates.\n")
+    message("Error fetching release data from GitHub. Could not check for updates.")
   }
 }
