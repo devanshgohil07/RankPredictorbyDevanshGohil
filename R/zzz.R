@@ -1,4 +1,17 @@
 .onLoad <- function(libname, pkgname) {
+  # Function to print the message in blue
+  blue <- function(text) {
+    cat("\033[34m", text, "\033[39m", sep = "")  # ANSI escape code for blue
+  }
+
+  # Display the introduction message in blue
+  blue("Welcome to RankPredictorbyDevanshGohil!\n")
+  blue("This package predicts academic ranks based on CGPA and term data.\n")
+  blue("For any support or issues, visit the package's GitHub page: https://github.com/devanshgohil07/RankPredictorbyDevanshGohil\n")
+  blue("\nCreated by: Devansh Gohil\n")
+  blue("You can contact me at: i24devanshg@iimidr.ac.in\n")
+  blue("Feel free to check out my work at: https://github.com/devanshgohil07\n")
+
   # Load the necessary packages
   library(httr)
   library(jsonlite)
