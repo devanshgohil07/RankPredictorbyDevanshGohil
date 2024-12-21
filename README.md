@@ -1,4 +1,4 @@
-# Rank Predictor(IPM) by Devansh Gohil
+# Rank Predictor(IPM, IIM Indore) by Devansh Gohil
 
 **RankPredictorbyDevanshGohil** is an R package developed by Devansh Gohil for predicting academic ranks based on CGPA and term/year. The tool provides insights into rank estimation, percentile, CGPA conversion, and more, making it a comprehensive tool for academic performance analysis. This tool is built specifically for IPM students of IIM Indore based on the data available on IPM Intranet as of 21st December, 2024.
 
